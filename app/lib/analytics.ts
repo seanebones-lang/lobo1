@@ -591,5 +591,5 @@ class ApolloAnalytics {
 }
 
 // Export singleton instance
-export const apolloAnalytics = new ApolloAnalytics();
-export default apolloAnalytics;
+export const analytics = new ApolloAnalytics();
+export default analytics;

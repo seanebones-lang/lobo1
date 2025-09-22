@@ -2,9 +2,9 @@
 
 import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { useApp, appActions } from '../context/AppContext';
-import { apolloClient } from '../lib/apollo-client';
-import { apolloAI } from '../lib/ai-system';
-import { apolloAnalytics } from '../lib/analytics';
+// Removed APOLLO imports
+import { aiSystem } from '../lib/ai-system';
+import { analytics } from '../lib/analytics';
 import { Message } from '../types';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Send, Bot, User, Sparkles, Loader2, Mic, MicOff, Volume2 } from 'lucide-react';
@@ -58,7 +58,7 @@ export default function ChatInterfaceEnhanced() {
 
   // Track page view
   useEffect(() => {
-    apolloAnalytics.trackPageView('/chat', 'Enhanced Chat Interface');
+    analytics.trackPageView('/chat', 'Enhanced Chat Interface');
   }, []);
 
   const sanitizeInput = (input: string): string => {
@@ -84,7 +84,7 @@ export default function ChatInterfaceEnhanced() {
     if (!sanitizedInput) return;
 
     // Track user interaction
-    apolloAnalytics.trackInteraction('chat_input', 'submit', {
+    analytics.trackInteraction('chat_input', 'submit', {
       messageLength: sanitizedInput.length,
       sessionId
     });
@@ -112,7 +112,7 @@ export default function ChatInterfaceEnhanced() {
       };
 
       // Process with APOLLO AI
-      const aiResponse = await apolloAI.processQuery(sanitizedInput, context);
+      const aiResponse = await aiSystem.processQuery(sanitizedInput, context);
       
       const aiMessage: Message = {
         id: Date.now() + 1,
@@ -128,7 +128,7 @@ export default function ChatInterfaceEnhanced() {
       speakText(aiResponse.response);
 
       // Track AI response
-      apolloAnalytics.trackInteraction('ai_response', 'generated', {
+      analytics.trackInteraction('ai_response', 'generated', {
         confidence: aiResponse.confidence,
         intent: aiResponse.intent,
         processingTime: aiResponse.metadata.processingTime,
@@ -139,7 +139,7 @@ export default function ChatInterfaceEnhanced() {
       console.error('APOLLO AI Error:', error);
       
       // Track error
-      apolloAnalytics.trackError(error as Error, { sessionId });
+      analytics.trackError(error as Error, { sessionId });
       
       // Fallback response
       const fallbackResponse = "I apologize, but I'm experiencing some technical difficulties. Please try again or contact us directly for assistance.";
@@ -183,7 +183,7 @@ export default function ChatInterfaceEnhanced() {
     if (recognitionRef.current) {
       recognitionRef.current.start();
       setIsRecording(true);
-      apolloAnalytics.trackInteraction('voice_input', 'start', { sessionId });
+      analytics.trackInteraction('voice_input', 'start', { sessionId });
     }
   };
 
@@ -197,7 +197,7 @@ export default function ChatInterfaceEnhanced() {
   const handleSuggestionClick = useCallback((suggestion: string) => {
     setInputValue(suggestion);
     inputRef.current?.focus();
-    apolloAnalytics.trackInteraction('suggestion', 'click', { suggestion, sessionId });
+    analytics.trackInteraction('suggestion', 'click', { suggestion, sessionId });
   }, [sessionId]);
 
   const handleKeyPress = (e: React.KeyboardEvent) => {
@@ -209,7 +209,7 @@ export default function ChatInterfaceEnhanced() {
 
   const clearChat = () => {
     dispatch(appActions.setActiveTab('chat'));
-    apolloAnalytics.trackInteraction('chat', 'clear', { sessionId });
+    analytics.trackInteraction('chat', 'clear', { sessionId });
   };
 
   return (

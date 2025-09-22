@@ -393,5 +393,5 @@ class ApolloAISystem {
 }
 
 // Export singleton instance
-export const apolloAI = new ApolloAISystem();
-export default apolloAI;
+export const aiSystem = new ApolloAISystem();
+export default aiSystem;

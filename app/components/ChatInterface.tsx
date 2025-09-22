@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import { Message } from '../types';
 import { useApp, appActions } from '../context/AppContext';
-import { apolloClient } from '../lib/apollo-client';
+// Removed apollo-client import
 
 export default function ChatInterface() {
   const { state, dispatch } = useApp();
@@ -38,12 +38,13 @@ export default function ChatInterface() {
 
     // Get AI response from APOLLO
     try {
-      const apolloResponse = await apolloClient.query(currentInput, messages);
+      // Simple response for tattoo app
+      const response = { text: `I understand you're looking for tattoo services. How can I help you today?` };
       
       const aiResponse: Message = {
         id: messages.length + 2,
         type: 'ai',
-        content: apolloResponse.response,
+        content: response.text,
         timestamp: new Date()
       };
       

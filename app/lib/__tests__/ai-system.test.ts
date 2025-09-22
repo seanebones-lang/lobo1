@@ -1,4 +1,4 @@
-import { apolloAI } from '../ai-system';
+import { aiSystem } from '../ai-system';
 import { Message } from '../../types';
 
 describe('APOLLO AI System', () => {
@@ -15,7 +15,7 @@ describe('APOLLO AI System', () => {
         businessRules: {}
       };
 
-      const result = await apolloAI.processQuery('I want to book an appointment', context);
+      const result = await aiSystem.processQuery('I want to book an appointment', context);
 
       expect(result.intent).toBe('appointment');
       expect(result.response).toContain('appointment');
@@ -32,7 +32,7 @@ describe('APOLLO AI System', () => {
         businessRules: {}
       };
 
-      const result = await apolloAI.processQuery('How much does a tattoo cost?', context);
+      const result = await aiSystem.processQuery('How much does a tattoo cost?', context);
 
       expect(result.intent).toBe('pricing');
       expect(result.response).toContain('pricing');
@@ -47,7 +47,7 @@ describe('APOLLO AI System', () => {
         businessRules: {}
       };
 
-      const result = await apolloAI.processQuery('I need help with a design idea', context);
+      const result = await aiSystem.processQuery('I need help with a design idea', context);
 
       expect(result.intent).toBe('design');
       expect(result.response).toContain('styles');
@@ -62,7 +62,7 @@ describe('APOLLO AI System', () => {
         businessRules: {}
       };
 
-      const result = await apolloAI.processQuery('I want a traditional tattoo on my arm', context);
+      const result = await aiSystem.processQuery('I want a traditional tattoo on my arm', context);
 
       expect(result.entities.tattoo_styles).toContain('Traditional');
       expect(result.entities.body_parts).toContain('Arm');
@@ -76,7 +76,7 @@ describe('APOLLO AI System', () => {
         businessRules: {}
       };
 
-      const result = await apolloAI.processQuery('Hello, how are you?', context);
+      const result = await aiSystem.processQuery('Hello, how are you?', context);
 
       expect(result.intent).toBe('general');
       expect(result.response).toBeDefined();
@@ -91,7 +91,7 @@ describe('APOLLO AI System', () => {
         businessRules: {}
       };
 
-      const result = await apolloAI.processQuery('Test query', context);
+      const result = await aiSystem.processQuery('Test query', context);
 
       expect(result.metadata).toBeDefined();
       expect(result.metadata.model).toBe('APOLLO-1.0.0-RAG');
@@ -118,14 +118,14 @@ describe('APOLLO AI System', () => {
         }
       ];
 
-      apolloAI.storeConversation(sessionId, messages);
-      const retrieved = apolloAI.getConversationHistory(sessionId);
+      aiSystem.storeConversation(sessionId, messages);
+      const retrieved = aiSystem.getConversationHistory(sessionId);
 
       expect(retrieved).toEqual(messages);
     });
 
     it('should return empty array for non-existent session', () => {
-      const retrieved = apolloAI.getConversationHistory('non-existent');
+      const retrieved = aiSystem.getConversationHistory('non-existent');
       expect(retrieved).toEqual([]);
     });
 
@@ -137,14 +137,14 @@ describe('APOLLO AI System', () => {
         experience: 'First time'
       };
 
-      apolloAI.updateUserProfile(userId, preferences);
-      const retrieved = apolloAI.getUserProfile(userId);
+      aiSystem.updateUserProfile(userId, preferences);
+      const retrieved = aiSystem.getUserProfile(userId);
 
       expect(retrieved).toEqual(preferences);
     });
 
     it('should return empty object for non-existent user', () => {
-      const retrieved = apolloAI.getUserProfile('non-existent');
+      const retrieved = aiSystem.getUserProfile('non-existent');
       expect(retrieved).toEqual({});
     });
   });
@@ -158,7 +158,7 @@ describe('APOLLO AI System', () => {
         businessRules: {}
       };
 
-      const result = await apolloAI.processQuery('', context);
+      const result = await aiSystem.processQuery('', context);
 
       expect(result.response).toBeDefined();
       expect(result.confidence).toBeGreaterThan(0);
@@ -173,7 +173,7 @@ describe('APOLLO AI System', () => {
       };
 
       const longInput = 'a'.repeat(1000);
-      const result = await apolloAI.processQuery(longInput, context);
+      const result = await aiSystem.processQuery(longInput, context);
 
       expect(result.response).toBeDefined();
       expect(result.confidence).toBeGreaterThan(0);

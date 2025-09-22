@@ -86,7 +86,7 @@ class ApolloSubscriberIntegrationManager {
 
   constructor() {
     this.loadSubscriberData();
-    console.log('🌊 APOLLO Subscriber Integration Manager: Initialized');
+    console.log('🌊 Tattoo App Subscriber Integration Manager: Initialized');
   }
 
   // Load subscriber data from localStorage

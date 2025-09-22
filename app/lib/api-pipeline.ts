@@ -1,7 +1,7 @@
 // APOLLO API Pipeline System
 import { NextRequest, NextResponse } from 'next/server';
 import { ragPipeline } from './rag-pipeline';
-import { apolloAnalytics } from './analytics';
+import { analytics } from './analytics';
 
 interface APIPipelineConfig {
   name: string;
@@ -159,7 +159,7 @@ class APIPipeline {
 
       // Track analytics
       if (config.analytics) {
-        apolloAnalytics.trackInteraction('api_pipeline', pipelineName, {
+        analytics.trackInteraction('api_pipeline', pipelineName, {
           success: result.success,
           processingTime: Date.now() - startTime,
           cacheHit,
@@ -375,13 +375,13 @@ class APIPipeline {
       
       switch (type) {
         case 'realtime':
-          analyticsData = apolloAnalytics.getRealTimeMetrics();
+          analyticsData = analytics.getRealTimeMetrics();
           break;
         case 'business':
-          analyticsData = apolloAnalytics.getBusinessMetrics(timeRange || '7d');
+          analyticsData = analytics.getBusinessMetrics(timeRange || '7d');
           break;
         default:
-          analyticsData = apolloAnalytics.getAnalyticsMetrics(timeRange || '7d');
+          analyticsData = analytics.getAnalyticsMetrics(timeRange || '7d');
       }
       
       return {
