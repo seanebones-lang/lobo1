@@ -1,0 +1,77 @@
+{
+  "timestamp": "2025-09-20T21:02:00.737311",
+  "system_id": "ee760d1c",
+  "learning_stats": {
+    "total_learned": 3,
+    "successful_learns": 3,
+    "failed_learns": 0,
+    "categories_learned": {
+      "web_app": 1,
+      "tattoo_shop": 1,
+      "ai_system": 1
+    },
+    "last_learning": "2025-09-20T21:02:00.736944"
+  },
+  "recent_builds": [
+    {
+      "path": "/Users/seanmcdonnell/Desktop/APOLLO 1.0.0",
+      "category": "ai_system",
+      "learned_at": "2025-09-20T21:02:00.736898",
+      "files_count": 83242
+    },
+    {
+      "path": "/Users/seanmcdonnell/Desktop/NextEleven-Tattoo-Pro",
+      "category": "tattoo_shop",
+      "learned_at": "2025-09-20T21:01:32.573238",
+      "files_count": 45
+    },
+    {
+      "path": "/Users/seanmcdonnell/Desktop/Crowley Edition",
+      "category": "web_app",
+      "learned_at": "2025-09-20T21:01:31.741760",
+      "files_count": 17
+    }
+  ],
+  "config": {
+    "enabled": true,
+    "learning_interval": 180,
+    "max_builds_per_hour": 20,
+    "watch_directories": [
+      "/Users/seanmcdonnell/Desktop/Crowley Edition",
+      "/Users/seanmcdonnell/Desktop/Tattoo App",
+      "/Users/seanmcdonnell/Desktop/NextEleven-Tattoo-Pro",
+      "/Users/seanmcdonnell/Desktop/APOLLO 1.0.0",
+      "/Users/seanmcdonnell/Desktop/Tattoo Template"
+    ],
+    "ignore_patterns": [
+      "node_modules",
+      ".git",
+      ".next",
+      "__pycache__",
+      ".venv",
+      "venv",
+      ".env",
+      "*.log",
+      ".DS_Store"
+    ],
+    "min_build_size": 500,
+    "learning_categories": [
+      "web_app",
+      "ai_system",
+      "tattoo_shop",
+      "crowley_edition",
+      "documentation",
+      "deployment",
+      "nextjs_app"
+    ],
+    "max_queue_size": 100,
+    "learning_timeout": 30,
+    "save_interval": 300
+  },
+  "summary": {
+    "total_builds_learned": 3,
+    "success_rate": 100.0,
+    "categories_discovered": 3,
+    "auto_learning_active": false
+  }
+}

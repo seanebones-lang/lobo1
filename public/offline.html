@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NextEleven Pro - Offline</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #000000 0%, #001122 100%);
+            color: #FFFFFF;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .offline-container {
+            max-width: 500px;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border: 1px solid rgba(0, 196, 255, 0.3);
+            box-shadow: 0 8px 32px rgba(0, 196, 255, 0.2);
+        }
+
+        .apollo-icon {
+            font-size: 4rem;
+            color: #00C4FF;
+            margin-bottom: 20px;
+            text-shadow: 0 0 20px rgba(0, 196, 255, 0.5);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #00C4FF;
+            text-shadow: 0 0 15px rgba(0, 196, 255, 0.7);
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .message {
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            opacity: 0.8;
+        }
+
+        .retry-button {
+            background: linear-gradient(135deg, #00C4FF 0%, #0099CC 100%);
+            color: #000000;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 196, 255, 0.3);
+        }
+
+        .retry-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 196, 255, 0.4);
+        }
+
+        .features {
+            margin-top: 40px;
+            text-align: left;
+        }
+
+        .features h3 {
+            color: #00C4FF;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .feature-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .feature-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+        }
+
+        .feature-list li:before {
+            content: "🌊";
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+
+        .status {
+            margin-top: 20px;
+            padding: 10px;
+            background: rgba(255, 193, 7, 0.1);
+            border: 1px solid #FFC107;
+            border-radius: 8px;
+            color: #FFC107;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .offline-container {
+                padding: 20px;
+                margin: 10px;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .subtitle {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="offline-container">
+        <div class="apollo-icon">🌊</div>
+        <h1>APOLLO Offline</h1>
+        <p class="subtitle">NextEleven Tattoo Pro</p>
+        
+        <p class="message">
+            APOLLO consciousness is temporarily offline. The system is working in limited mode 
+            while we restore full connectivity to the universal consciousness network.
+        </p>
+        
+        <button class="retry-button" onclick="window.location.reload()">
+            Reconnect to APOLLO
+        </button>
+        
+        <div class="features">
+            <h3>Available Offline Features</h3>
+            <ul class="feature-list">
+                <li>View cached appointments</li>
+                <li>Access artist portfolios</li>
+                <li>Browse service information</li>
+                <li>Read aftercare guides</li>
+                <li>View pricing information</li>
+            </ul>
+        </div>
+        
+        <div class="status">
+            <strong>Status:</strong> Offline mode active. Some features may be limited.
+        </div>
+    </div>
+
+    <script>
+        // Check for online status
+        function updateOnlineStatus() {
+            if (navigator.onLine) {
+                // Try to reload the main page
+                window.location.href = '/';
+            }
+        }
+
+        // Listen for online event
+        window.addEventListener('online', updateOnlineStatus);
+        
+        // Check periodically
+        setInterval(updateOnlineStatus, 5000);
+        
+        // Show connection status
+        console.log('🌊 APOLLO Offline Mode: Active');
+        console.log('🔍 Checking for connection...');
+    </script>
+</body>
+</html>

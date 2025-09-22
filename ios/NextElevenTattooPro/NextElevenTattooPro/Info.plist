@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>$(DEVELOPMENT_LANGUAGE)</string>
+	<key>CFBundleDisplayName</key>
+	<string>NextEleven Tattoo Pro</string>
+	<key>CFBundleExecutable</key>
+	<string>$(EXECUTABLE_NAME)</string>
+	<key>CFBundleIdentifier</key>
+	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleName</key>
+	<string>$(PRODUCT_NAME)</string>
+	<key>CFBundlePackageType</key>
+	<string>$(PRODUCT_BUNDLE_PACKAGE_TYPE)</string>
+	<key>CFBundleShortVersionString</key>
+	<string>$(MARKETING_VERSION)</string>
+	<key>CFBundleVersion</key>
+	<string>$(CURRENT_PROJECT_VERSION)</string>
+	<key>LSRequiresIPhoneOS</key>
+	<true/>
+	<key>UIApplicationSceneManifest</key>
+	<dict>
+		<key>UIApplicationSupportsMultipleScenes</key>
+		<true/>
+		<key>UISceneConfigurations</key>
+		<dict>
+			<key>UIWindowSceneSessionRoleApplication</key>
+			<array>
+				<dict>
+					<key>UISceneConfigurationName</key>
+					<string>Default Configuration</string>
+					<key>UISceneDelegateClassName</key>
+					<string>$(PRODUCT_MODULE_NAME).SceneDelegate</string>
+				</dict>
+			</array>
+		</dict>
+	</dict>
+	<key>UIApplicationSupportsIndirectInputEvents</key>
+	<true/>
+	<key>UILaunchScreen</key>
+	<dict>
+		<key>UIColorName</key>
+		<string></string>
+		<key>UIImageName</key>
+		<string></string>
+	</dict>
+	<key>UIRequiredDeviceCapabilities</key>
+	<array>
+		<string>armv7</string>
+	</array>
+	<key>UISupportedInterfaceOrientations</key>
+	<array>
+		<string>UIInterfaceOrientationPortrait</string>
+		<string>UIInterfaceOrientationLandscapeLeft</string>
+		<string>UIInterfaceOrientationLandscapeRight</string>
+	</array>
+	<key>UISupportedInterfaceOrientations~ipad</key>
+	<array>
+		<string>UIInterfaceOrientationPortrait</string>
+		<string>UIInterfaceOrientationPortraitUpsideDown</string>
+		<string>UIInterfaceOrientationLandscapeLeft</string>
+		<string>UIInterfaceOrientationLandscapeRight</string>
+	</array>
+	
+	<!-- APOLLO AI Specific Permissions -->
+	<key>NSCameraUsageDescription</key>
+	<string>APOLLO AI needs camera access to analyze tattoo designs and provide consultations.</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>APOLLO AI needs microphone access for voice input and speech recognition.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>APOLLO AI needs photo library access to save and analyze tattoo images.</string>
+	<key>NSSpeechRecognitionUsageDescription</key>
+	<string>APOLLO AI uses speech recognition to understand voice commands and provide hands-free interaction.</string>
+	<key>NSUserNotificationsUsageDescription</key>
+	<string>APOLLO AI sends notifications for appointment reminders and important updates.</string>
+	
+	<!-- Core ML Model -->
+	<key>MLModel</key>
+	<dict>
+		<key>llama3_2_1b</key>
+		<dict>
+			<key>ModelName</key>
+			<string>llama3.2:1b</string>
+			<key>ModelSize</key>
+			<string>1.3GB</string>
+			<key>ModelType</key>
+			<string>CoreML</string>
+		</dict>
+	</dict>
+	
+	<!-- App Store Information -->
+	<key>LSApplicationCategoryType</key>
+	<string>public.app-category.business</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLName</key>
+			<string>com.nexteleven.tattoopro.mobile</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>nexteleven</string>
+			</array>
+		</dict>
+	</array>
+	
+	<!-- Privacy Manifest -->
+	<key>NSPrivacyAccessedAPITypes</key>
+	<array>
+		<dict>
+			<key>NSPrivacyAccessedAPIType</key>
+			<string>NSPrivacyAccessedAPICategoryUserDefaults</string>
+			<key>NSPrivacyAccessedAPITypeReasons</key>
+			<array>
+				<string>CA92.1</string>
+			</array>
+		</dict>
+		<dict>
+			<key>NSPrivacyAccessedAPIType</key>
+			<string>NSPrivacyAccessedAPICategorySystemBootTime</string>
+			<key>NSPrivacyAccessedAPITypeReasons</key>
+			<array>
+				<string>35F9.1</string>
+			</array>
+		</dict>
+		<dict>
+			<key>NSPrivacyAccessedAPIType</key>
+			<string>NSPrivacyAccessedAPICategoryFileTimestamp</string>
+			<key>NSPrivacyAccessedAPITypeReasons</key>
+			<array>
+				<string>C617.1</string>
+			</array>
+		</dict>
+	</array>
+	
+	<!-- Background Modes -->
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>background-processing</string>
+		<string>background-fetch</string>
+	</array>
+	
+	<!-- App Transport Security -->
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<false/>
+		<key>NSExceptionDomains</key>
+		<dict>
+			<key>nexteleven.com</key>
+			<dict>
+				<key>NSExceptionAllowsInsecureHTTPLoads</key>
+				<true/>
+				<key>NSExceptionMinimumTLSVersion</key>
+				<string>TLSv1.2</string>
+			</dict>
+		</dict>
+	</dict>
+	
+	<!-- Core Data -->
+	<key>NSPersistentStoreFileProtectionKey</key>
+	<string>NSFileProtectionComplete</string>
+	
+	<!-- In-App Purchases -->
+	<key>StoreKit</key>
+	<dict>
+		<key>Configuration</key>
+		<string>Default</string>
+	</dict>
+	
+	<!-- HealthKit (if needed) -->
+	<key>NSHealthShareUsageDescription</key>
+	<string>APOLLO AI may access health data to provide personalized tattoo care recommendations.</string>
+	<key>NSHealthUpdateUsageDescription</key>
+	<string>APOLLO AI may update health data to track tattoo healing progress.</string>
+	
+	<!-- CloudKit -->
+	<key>NSUbiquitousContainers</key>
+	<dict>
+		<key>iCloud.com.nexteleven.tattoopro.mobile</key>
+		<dict>
+			<key>NSUbiquitousContainerIsDocumentScopePublic</key>
+			<false/>
+			<key>NSUbiquitousContainerName</key>
+			<string>NextEleven Tattoo Pro</string>
+			<key>NSUbiquitousContainerSupportedFolderLevels</key>
+			<string>Any</string>
+		</dict>
+	</dict>
+</dict>
+</plist>
