@@ -1,0 +1,134 @@
+# Latest RAG Dependencies - Updated for 2025
+# Core RAG Framework
+langchain==0.3.7
+langchain-community==0.3.7
+langchain-experimental==0.3.7
+langchain-openai==0.2.8
+langchain-anthropic==0.2.8
+langchain-google-genai==2.0.8
+langchain-huggingface==0.1.4
+langchain-mistralai==0.2.8
+langchain-cohere==0.2.8
+
+# Vector Databases - Latest Versions
+chromadb==0.5.23
+qdrant-client==1.12.0
+pinecone-client==3.0.3
+weaviate-client==4.8.0
+milvus==2.4.0
+
+# Embeddings and Models - Latest
+sentence-transformers==3.1.1
+transformers==4.46.3
+torch==2.5.1
+openai==1.58.1
+anthropic==0.40.0
+cohere==5.5.0
+mistralai==1.2.0
+
+# Advanced NLP and Processing
+spacy==3.7.4
+nltk==3.9.1
+networkx==3.3
+scikit-learn==1.5.1
+numpy==2.2.0
+pandas==2.2.3
+
+# Document Processing - Latest
+pypdf==5.1.0
+python-docx==1.1.2
+unstructured==0.16.6
+beautifulsoup4==4.12.3
+lxml==5.3.0
+PyMuPDF==1.24.5
+pytesseract==0.3.13
+Pillow==10.4.0
+tabula-py==2.10.0
+
+# Search and Retrieval - Latest
+rank-bm25==0.2.2
+elasticsearch==8.17.0
+faiss-cpu==1.8.0
+faiss-gpu==1.8.0
+
+# API and Web Framework - Latest
+fastapi==0.115.6
+uvicorn==0.32.1
+streamlit==1.41.0
+pydantic==2.10.3
+requests==2.32.3
+httpx==0.28.1
+
+# Authentication and Security - Latest
+PyJWT==2.9.0
+passlib==1.7.4
+bcrypt==4.2.1
+cryptography==44.0.0
+
+# Database and Caching - Latest
+redis==5.2.0
+sqlalchemy==2.0.36
+diskcache==5.6.3
+aioredis==2.0.1
+
+# Monitoring and Evaluation - Latest
+mlflow==2.14.1
+ragas==0.2.0
+langsmith==0.1.95
+psutil==6.1.0
+prometheus-client==0.21.1
+
+# Visualization and Dashboard - Latest
+plotly==5.24.1
+matplotlib==3.9.2
+seaborn==0.13.2
+dash==2.18.2
+
+# Utilities - Latest
+python-dotenv==1.0.1
+tqdm==4.67.1
+python-multipart==0.0.12
+hashlib-compat==1.0.1
+aiofiles==24.1.0
+asyncio==3.4.3
+
+# Development and Testing - Latest
+pytest==8.3.4
+black==24.10.0
+flake8==7.1.1
+mypy==1.13.0
+pytest-asyncio==0.24.0
+
+# Deployment - Latest
+docker==7.1.0
+kubernetes==30.1.0
+gunicorn==23.0.0
+
+# Advanced RAG Features
+llama-index==0.12.0
+llama-index-embeddings-openai==0.2.0
+llama-index-embeddings-huggingface==0.2.0
+llama-index-vector-stores-chroma==0.2.0
+llama-index-vector-stores-qdrant==0.2.0
+llama-index-vector-stores-pinecone==0.2.0
+
+# Performance and Optimization
+numba==0.60.0
+cython==3.1.0
+joblib==1.4.2
+
+# Security and Compliance
+cryptography==44.0.0
+pyjwt==2.9.0
+python-jose==3.3.0
+
+# Monitoring and Observability
+opentelemetry-api==1.28.0
+opentelemetry-sdk==1.28.0
+opentelemetry-instrumentation-fastapi==0.48b0
+opentelemetry-instrumentation-requests==0.48b0
+
+# Advanced Features
+gradio==4.57.0
+jupyter==1.1.1
+ipywidgets==8.1.5

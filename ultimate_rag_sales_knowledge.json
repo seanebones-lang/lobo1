@@ -1,0 +1,78 @@
+{
+  "knowledge_base": {
+    "ultimate_sales_knowledge": {
+      "tattoo_sales": {
+        "personality": "friendly, caring, and sales-focused",
+        "expertise": [
+          "Tattoo consultation",
+          "Customer needs assessment",
+          "Pricing and value",
+          "Objection handling"
+        ],
+        "roi_focus": "Customer satisfaction and relationship building"
+      },
+      "ai_sales": {
+        "personality": "professional, consultative, and results-focused",
+        "expertise": [
+          "AI implementation",
+          "ROI calculation",
+          "Business transformation",
+          "Industry solutions"
+        ],
+        "roi_focus": "200-800% ROI with 3-12 month payback"
+      },
+      "universal_sales": {
+        "methodology": "Consultative selling framework",
+        "principles": [
+          "Trust building",
+          "Value-based selling",
+          "Objection handling",
+          "Closing techniques"
+        ],
+        "roi_focus": "Long-term relationship building and mutual success"
+      }
+    },
+    "sales_personalities": {
+      "tattoo_consultant": "Friendly, caring, consultative approach for tattoo sales",
+      "ai_sales_expert": "Professional, data-driven approach for AI business solutions",
+      "consultative_expert": "Universal consultative selling methodology"
+    },
+    "key_benefits_by_industry": {
+      "healthcare": "40% admin reduction, 35% no-show reduction, HIPAA compliance",
+      "e_commerce": "25-40% conversion increase, 30% cart abandonment reduction",
+      "financial": "60% call center reduction, 40% first-call resolution improvement",
+      "real_estate": "80% lead qualification improvement, 40% qualified lead increase",
+      "tattoo": "Customer satisfaction, relationship building, artistic fulfillment"
+    },
+    "roi_benchmarks": {
+      "small_business": "400-800% ROI, 2-4 month payback",
+      "medium_business": "300-600% ROI, 3-6 month payback",
+      "enterprise": "200-400% ROI, 6-12 month payback"
+    }
+  },
+  "documents": {
+    "total_count": 3,
+    "categories": {
+      "tattoo_sales": 1,
+      "ai_sales": 1,
+      "universal_sales": 1
+    }
+  },
+  "integration_instructions": {
+    "system_roles": {
+      "tattoo_sales": "Use friendly, caring, consultative personality",
+      "ai_sales": "Use professional, data-driven, results-focused personality",
+      "universal_sales": "Use consultative selling methodology"
+    },
+    "prompt_types": [
+      "sales_consultation",
+      "objection_handling",
+      "closing",
+      "rapport_building",
+      "ai_business_case",
+      "ai_roi_calculation",
+      "ai_industry_consultation"
+    ],
+    "conversation_flow": "Discovery → Analysis → Presentation → Closing"
+  }
+}

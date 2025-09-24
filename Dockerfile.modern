@@ -1,0 +1,93 @@
+# Modern RAG System Dockerfile - 2025
+# Multi-stage build with latest optimizations
+
+# Stage 1: Base Python environment
+FROM python:3.11-slim as base
+
+# Set environment variables
+ENV PYTHONUNBUFFERED=1 \
+    PYTHONDONTWRITEBYTECODE=1 \
+    PIP_NO_CACHE_DIR=1 \
+    PIP_DISABLE_PIP_VERSION_CHECK=1
+
+# Install system dependencies
+RUN apt-get update && apt-get install -y \
+    build-essential \
+    curl \
+    git \
+    libpq-dev \
+    libffi-dev \
+    libssl-dev \
+    libxml2-dev \
+    libxslt1-dev \
+    zlib1g-dev \
+    && rm -rf /var/lib/apt/lists/*
+
+# Stage 2: Dependencies
+FROM base as dependencies
+
+# Create virtual environment
+RUN python -m venv /opt/venv
+ENV PATH="/opt/venv/bin:$PATH"
+
+# Copy requirements
+COPY requirements-latest.txt /tmp/requirements.txt
+
+# Install Python dependencies
+RUN pip install --upgrade pip setuptools wheel && \
+    pip install -r /tmp/requirements.txt
+
+# Stage 3: Application
+FROM base as application
+
+# Create non-root user
+RUN groupadd -r appuser && useradd -r -g appuser appuser
+
+# Set working directory
+WORKDIR /app
+
+# Copy virtual environment from dependencies stage
+COPY --from=dependencies /opt/venv /opt/venv
+ENV PATH="/opt/venv/bin:$PATH"
+
+# Copy application code
+COPY src/ /app/src/
+COPY tests/ /app/tests/
+COPY *.py /app/
+COPY *.yml /app/
+COPY *.yaml /app/
+COPY *.json /app/
+COPY *.md /app/
+
+# Create necessary directories
+RUN mkdir -p /app/data /app/logs /app/cache /app/models
+
+# Set permissions
+RUN chown -R appuser:appuser /app
+
+# Switch to non-root user
+USER appuser
+
+# Health check
+HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
+    CMD curl -f http://localhost:8000/health || exit 1
+
+# Expose port
+EXPOSE 8000
+
+# Default command
+CMD ["python", "-m", "src.api.modern_rag_api"]
+
+# Stage 4: Production (optional)
+FROM application as production
+
+# Additional production optimizations
+ENV ENVIRONMENT=production \
+    LOG_LEVEL=INFO \
+    WORKERS=4
+
+# Install production dependencies
+RUN pip install gunicorn[gevent]
+
+# Production command
+CMD ["gunicorn", "--bind", "0.0.0.0:8000", "--workers", "4", "--worker-class", "gevent", "--worker-connections", "1000", "--max-requests", "1000", "--max-requests-jitter", "100", "--timeout", "30", "--keep-alive", "2", "--preload", "src.api.modern_rag_api:app"]

@@ -12,12 +12,17 @@ import json
 from .query_processor import QueryProcessor
 from .conversation_manager import ConversationManager
 from .multimodal_processor import MultiModalProcessor
-from .advanced_retrieval import MultiVectorRetriever, KnowledgeGraphRetriever, HybridRetriever
-from .response_generator import AdvancedResponseGenerator, CitationParser, ResponseValidator
+from .advanced_retrieval import MultiVectorRetriever, HybridRetriever
+from .response_generator import CitationParser
 from .caching_system import MultiLevelCache, CacheManager
 from .performance_monitor import PerformanceMonitor
 from .auth_system import AuthenticationSystem, User, UserRole, RateLimitTier
 from .monitoring_dashboard import MonitoringDashboard
+
+# Import missing classes
+from .missing_classes import (
+    KnowledgeGraphRetriever, AdvancedResponseGenerator, ResponseValidator
+)
 
 logger = logging.getLogger(__name__)
 
