@@ -1,3 +1,16 @@
+# ⚠️ PROPRIETARY SOFTWARE NOTICE
+
+**This is proprietary software owned by Sean McDonnell. All rights reserved.**
+
+- 🚫 **NOT open source**
+- 🚫 **NOT free software** 
+- ✅ **Evaluation permitted**
+- 🔒 **Commercial use requires license**
+
+For licensing inquiries: [www.bizbot.store](https://www.bizbot.store)
+
+---
+
 # 🚀 ULTIMATE RAG SYSTEM - COMPLETE DEVELOPER GUIDE
 
 > **THE MOST COMPREHENSIVE RAG SYSTEM EVER BUILT** - Production-ready with every advanced feature imaginable
